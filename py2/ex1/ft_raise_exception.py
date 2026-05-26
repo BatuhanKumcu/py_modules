@@ -1,19 +1,19 @@
-def input_temperature(temp_str: str):
+def input_temperature(temp_str: str) -> int:
     s = temp_str.strip()
     try:
         temp = int(s)
     except ValueError:
         raise
-    
+
     if temp < 0:
         raise ValueError(f"{temp}°C is too cold for plants (min 0°C)")
     elif temp > 40:
         raise ValueError(f"{temp}°C is too hot for plants (max 40°C)")
-    
+
     return temp
 
 
-def test_temperature():
+def test_temperature() -> None:
     data = "25"
     print(f"Input data is '{data}'")
     try:

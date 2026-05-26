@@ -1,14 +1,14 @@
 class Plant:
-	def __init__(self, name, height_cm, age_days):
+	def __init__(self, name: str, height_cm: int, age_days: int) -> None:
 		self.name = name
 		self.height_cm = height_cm
 		self.age_days = age_days
 
-	def show(self):
+	def show(self) -> None:
 		print(f"{self.name}: {self.height_cm}cm, {self.age_days} days old")
 
 
-def objects():
+def objects() -> None:
     rose = Plant("Rose", 25, 30)
     sunflower = Plant("Sunflower", 80, 45)
     cactus = Plant("Cactus", 15, 120)

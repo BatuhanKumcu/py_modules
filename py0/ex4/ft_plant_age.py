@@ -1,4 +1,4 @@
-def ft_plant_age():
+def ft_plant_age() -> None:
     plantage = int(input("Enter plant age int days: "))
     if plantage < 60:
         print("Plant needs more time to grow.")
