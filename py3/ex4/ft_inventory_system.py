@@ -1,6 +1,6 @@
 import sys
 
-def inventory_system():
+def inventory_system() -> None:
     inventory = {}
 
     for i in range(1, len(sys.argv)):
@@ -22,7 +22,7 @@ def inventory_system():
             quantity = int(quantity_text)
             inventory[item] = quantity
         except ValueError:
-            print("Quantity error for '" + item + "': invalid literal for int() with base 10: '" + quantity + "'")
+            print("Quantity error for '" + item + "': invalid literal for int() with base 10: '" + quantity_text + "'")
 
     print("Got inventory:", inventory)
 

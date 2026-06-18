@@ -1,10 +1,9 @@
 import math
 
 
-def get_player_pos() -> tuple[float, float, float]:
+def get_player_position() -> tuple[float, float, float]:
     position = (0.0, 0.0, 0.0)
     valid = False
-
     while not valid:
         user_input = input("Enter new coordinates as floats in format 'x,y,z': ")
 
@@ -19,31 +18,30 @@ def get_player_pos() -> tuple[float, float, float]:
             y = float(parts[1])
             z = float(parts[2])
             position = (x, y, z)
-        except ValueError:
             valid = True
-            print("Error on parameter:", user_input)
+        except ValueError:
+            print("Error on parameter: ", user_input)
 
     return position
 
 
 print("=== Game Coordinate System ===")
+print()
 
-print("\nGet a first set of coordinates")
-first_pos = get_player_pos()
+print("Get a first set of coordinates")
+first_position = get_player_position()
+print("Got a first tuple: ", first_position)
+print(f"It includes: X={first_position[0]}, Y={first_position[1]}, Z={first_position[2]}")
 
-print("Got a first tuple: ", first_pos)
-print("It includes:", first_pos[0], first_pos[1], first_pos[2])
+distance_to_center = math.sqrt(first_position[0] ** 2 + first_position[1] ** 2 + first_position[2] ** 2)
+print(f"Distance to center: {round(distance_to_center, 4)}")
 
-distance_center = math.sqrt(first_pos[0]**2 + first_pos[1]**2 + first_pos[2]**2)
-print("Distance to center: ", round(distance_center, 4))
-
-print("\nGet a second set of coordinates")
-second_pos = get_player_pos()
-
-distance_between = math.sqrt(
-    (second_pos[0] - first_pos[0])**2
-     + (second_pos[1] - first_pos[1])**2
-    + (second_pos[2] - first_pos[2])**2
-)
-
-print("Distance between the 2 sets of coordinates:", round(distance_between, 4))
+print()
+print("Get a second set of coordinates")
+second_position = get_player_position()
+print(f"Got a second tuple: {second_position}")
+distance_between = (math.sqrt
+                    (second_position[0] - first_position[0]) ** 2 +
+                    (second_position[1] - first_position[1]) ** 2 +
+                    (second_position[2] - first_position[2]) ** 2)
+print(f"Distance between the 2 sets of coordinates: {round(distance_between, 4)}")
