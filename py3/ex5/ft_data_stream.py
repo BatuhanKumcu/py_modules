@@ -26,22 +26,23 @@ def consume_event(events: list[tuple[str, str]]) ->\
         yield events.pop(random_index)
 
 
-print("=== Game Data Stream Processor ===")
+if __name__ == "__main__":
+    print("=== Game Data Stream Processor ===")
 
-event_generator = gen_event()
+    event_generator = gen_event()
 
-for index in range(1000):
-    name, action = next(event_generator)
-    print(f"Event {index}: Player {name} did action {action}")
+    for index in range(1000):
+        name, action = next(event_generator)
+        print(f"Event {index}: Player {name} did action {action}")
 
-event_list = []
-event_generator = gen_event()
+    event_list = []
+    event_generator = gen_event()
 
-for _ in range(10):
-    event_list.append(next(event_generator))
+    for _ in range(10):
+        event_list.append(next(event_generator))
 
-print("Built list of 10 events:", event_list)
+    print("Built list of 10 events:", event_list)
 
-for event in consume_event(event_list):
-    print("Got event from list:", event)
-    print("Remains in list:", event_list)
+    for event in consume_event(event_list):
+        print("Got event from list:", event)
+        print("Remains in list:", event_list)
