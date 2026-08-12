@@ -1,19 +1,21 @@
-def garden_operations(operation_number):
+def garden_operations(operation_number: int) -> None:
     if operation_number == 0:
-        return int("abc")
+        int("abc")
     elif operation_number == 1:
-        return int(10 / 0)
+        int(10 / 0)
     elif operation_number == 2:
         open("non/existent/file")
-        return 0
     elif operation_number == 3:
-        text = "selam"
-        return text + 5 # type: ignore[operator]
+        "Selam" + 42
     else:
-        return 0
+        pass
+
 
 def test_error_types() -> None:
-    for i in range(5):
+    print("=== Garden Error Types Demo ===")
+
+    for i in range(0, 5):
+
         print(f"Testing operation {i}...")
         try:
             garden_operations(i)
@@ -28,8 +30,9 @@ def test_error_types() -> None:
         else:
             print("Operation was completed successfully")
 
-        print("All error types tested successfully!")
+    print()
+    print("All error types tested successfully!")
+
 
 if __name__ == "__main__":
-    print("=== Garden Error Types Demo ===")
     test_error_types()

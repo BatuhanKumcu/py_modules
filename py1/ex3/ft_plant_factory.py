@@ -1,39 +1,28 @@
 class Plant:
-    def __init__(self, name: str, height: float, day_old: int) -> None:
+    def __init__(self, name: str, height_cm: float, age_days: int) -> None:
         self.name = name
-        self.height = height
-        self.day_old = day_old
+        self.height_cm = float(height_cm)
+        self.age_days = int(age_days)
 
-    def growth(self, growing_rate: float) -> None:
-        self.height = self.height + growing_rate
+    def grow(self, amount_cm: float = 1.0) -> None:
+        self.height_cm += amount_cm
 
-    def age(self, plus_day: int=1) -> None:
-        self.day_old += plus_day
+    def age(self, days: int = 1) -> None:
+        self.age_days += days
 
     def show(self) -> None:
-        print(f"{self.name}: {round(self.height,1)}cm, {self.day_old} days old")
+        print(f"{self.name}: {self.height_cm:.1f}cm, {self.age_days} days old")
 
-
-def objects() -> None:
-    plants = [
-        Plant("Rose", 8.0, 5),
-        Plant("Cactus", 12.2, 5),
-        Plant("Sunflower", 15.5, 5),
-        Plant("Fern", 0.8, 5),
-        Plant("Oak", 125.0, 5),
-    ]
-    for plant in plants:
-        print("Created: ", end="")
-        plant.show()
-
-    oak = plants[4]
-    for i in range(1, 8):
-        oak.growth(2.4)
-        oak.age()
-        i = i + 1
-    print("After growing: ", end="")
-    oak.show()
 
 if __name__ == "__main__":
-    print("=== Garden Recovery Output ===")
-    objects()
+    plants = [
+        Plant("Rose", 25.0, 30),
+        Plant("Oak", 200.0, 365),
+        Plant("Cactus", 5.0, 90),
+        Plant("Sunflower", 80.0, 45),
+        Plant("Fern", 15.0, 120),
+    ]
+    print("=== Plant Factory Output ===")
+    for p in plants:
+        print("Created:", end=" ")
+        p.show()
