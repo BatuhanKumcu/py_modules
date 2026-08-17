@@ -13,15 +13,17 @@ def secure_archive(filename: str, action: str = "read", content: str = "")\
     except (FileNotFoundError, PermissionError, OSError) as e:
         return False, f"{e}"
 
+
 if __name__ == "__main__":
-    print("Using 'secure_archive' to read from a non-existent file:")
-    print(secure_archive("slm", "read"))
+    print("=== Cyber Archives Security ===\n")
+    print("Using 'secure_archive' to read from a nonexistent file:")
+    print(secure_archive("/not/existing/file", "read"))
     print()
     print("Using 'secure_archive' to read from an inaccessible file:")
     print(secure_archive("/etc/master.passwd", "read"))
     print()
-    print("Using 'secure_archive' to read from a regular file: ")
-    print(secure_archive("selam.txt", "read"))
+    print("Using 'secure_archive' to read from a regular file:")
+    print(secure_archive("ancient_fragment.txt", "read"))
     print()
     print("Using 'secure_archive' to write previous content to a new file:")
     print(secure_archive("selamlar.txt", "write", "selamlar"))

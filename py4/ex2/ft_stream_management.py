@@ -3,7 +3,7 @@ import typing
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: ft_ancient_text.py <file>")
+        print("Usage: ft_stream_management.py <file>")
     else:
         print("=== Cyber Archives Recovery & Preservation ===")
         print(f"Accessing file '{sys.argv[1]}'")
@@ -31,7 +31,7 @@ if __name__ == "__main__":
                     new_file: typing.IO[str] = open(new_name, "w")
                     new_file.write(transform)
                     new_file.close()
-                    print(f"data saved in file '{new_name}'")
+                    print(f"Data saved in file '{new_name}'.")
                 except (FileNotFoundError, PermissionError) as e:
                     print(
                         f"[STDERR] Error opening file '{new_name}': {e}",
